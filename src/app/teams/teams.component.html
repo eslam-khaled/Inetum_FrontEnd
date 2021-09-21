@@ -1,0 +1,48 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="form-control container divMargin">
+
+  <h1 class="center">Teams List</h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Country</th>
+        <th scope="col">Foundation Date</th>
+        <th scope="col">Coach Name</th>
+        <th scope="col">Logo Image</th>
+        <th scope="col">Players</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of TeamDtoList">
+
+        <td>
+          {{team.name}}
+        </td>
+
+        <td>
+          {{team.country}}
+        </td>
+
+        <td>
+          {{ team.foundationDate }}
+        </td>
+
+        <td>
+          {{team.coachName}}
+        </td>
+
+        <td>
+          <img alt="."> {{team.logoImage}}
+        </td>
+
+        <td>
+          <a style="color: blue;" [routerLink]="['/teams/Players/',team.id]">Players & Details</a>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

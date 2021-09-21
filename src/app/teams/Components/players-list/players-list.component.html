@@ -1,0 +1,33 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="form-control container divMargin">
+
+    <h1 class="center">Players List</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Nationality</th>
+                <th scope="col">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of playerList">
+
+                <td>
+                    {{player.name}}
+                </td>
+
+                <td>
+                    {{player.nationality}}
+                </td>
+
+                <td>
+                    <img alt="."> {{player.Image}}
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+.navbar {
+    direction: rtl;
+    background: linear-gradient(to left, #ffffff, #f7f5f8);
+  }
+  
+  .siteName {
+    font-family: Brush Script MT !important;
+    font-size: 22px;
+    color: darkslategray;
+  }
+  
+  li{
+    cursor: pointer;
+  }

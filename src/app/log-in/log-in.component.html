@@ -1,0 +1,46 @@
+<div class="backGround">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <form [formGroup]="LogInForm" (ngSubmit)="onFormSubmit(LogInForm.value)">
+
+        <div class="bodyCard" id="container-login">
+            <div id="title">
+                <i class="material-icons lock">lock</i> Login
+            </div>
+
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" formControlName="Username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="password" formControlName="Password" placeholder="Password" type="password" required class="validate"
+                    autocomplete="off">
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox">
+                <span style="color: #DDD">Remember Me</span>
+            </div>
+
+            <input type="submit" value="Log In" />
+
+
+
+        </div>
+    </form>
+
+    <div class="register">
+        Don't have an account yet?
+        <a href="#"><button id="register-link" click="GoToRegister()">Register here</button></a>
+    </div>
+    
+</div>

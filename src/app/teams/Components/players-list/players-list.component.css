@@ -1,0 +1,27 @@
+.divMargin{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.rightLocation{
+    text-align: right;
+    margin-bottom: 1%;
+    margin-right: 0.6%;
+}
+
+.leftPosition{
+    margin-right: 2%;;
+    margin-top: -0.5%;
+}
+
+.divMarginTop{
+    margin-top: 2%;
+}
+
+a{
+    cursor: pointer;
+}
+
+.center{
+    text-align: center;
+}

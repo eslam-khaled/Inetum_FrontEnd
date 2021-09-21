@@ -1,0 +1,113 @@
+
+<app-nav-bar></app-nav-bar>
+
+<div class="form-control container positionDown" dir="ltr">
+    <h1 class="center">Create Team</h1>
+    <form [formGroup]="NewTeamForm" *ngIf="NewTeamForm">
+
+        <div class="row positionDown">
+
+            <div class="col-md-4 row">
+                <div class="col-md-4">
+                    <label>Team Name</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" placeholder="
+                    team Name" class="form-control" formControlName="Name" [ngClass]="{
+                        'is-invalid': submitted && form.Name.errors
+                      }">
+
+                    <div *ngIf="submitted && form.Name.errors" class="invalid-feedback">
+                        <div *ngIf="form.Name.errors.required">
+                            Insert team name
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 row">
+                <div class="col-md-4">
+                    <label>Country</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" placeholder="Country" class="form-control" formControlName="Country" [ngClass]="{
+                        'is-invalid': submitted && form.Country.errors
+                      }">
+
+                    <div *ngIf="submitted && form.Country.errors" class="invalid-feedback">
+                        <div *ngIf="form.Country.errors.required">
+                            Insert country
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="row positionDown">
+
+            <div class="col-md-4 row">
+                <div class="col-md-4">
+                    <label>Coach Name</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" placeholder="Coach Name" class="form-control" formControlName="CoachName"
+                        [ngClass]="{
+                        'is-invalid': submitted && form.CoachName.errors
+                      }">
+
+                    <div *ngIf="submitted && form.CoachName.errors" class="invalid-feedback">
+                        <div *ngIf="form.CoachName.errors.required">
+                            Insert Coach Name
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-control container positionDown" dir="ltr">
+
+            <div class="row positionDown">
+
+                <button class="btn btn-success w-25 mx-auto" (click)="addNewPlayer()">Add New Player</button>
+                <div formArrayName="playerListDto">
+                    <div *ngFor="let name of teamPlayers_Controls; let i = index">
+                        <div class="row py-3" [formGroupName]='i'>
+                            <div class="col-5">
+                                <div class="d-flex flex-column">
+                                    <input type="text" class="form-control" placeholder="Enter Player Name"
+                                        formControlName="Name">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" class="form-control" placeholder="Enter Player Nationality"
+                                    formControlName="nationality">
+
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-danger" (click)="deletePlayer(i)">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row positionDown">
+
+            </div>
+
+        </div>
+
+    </form>
+    <div class="btnMargin">
+        <input type="submit" class="btn btn-primary btnPosition" value="Save" (click)="onFormSubmit()">
+    </div>
+
+</div>
