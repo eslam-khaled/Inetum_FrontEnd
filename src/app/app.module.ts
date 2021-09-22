@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TeamsModule } from './teams/teams.module';
+import { Interceptor } from './shared/Gaurd/Interceptor';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { TeamsModule } from './teams/teams.module';
     LogInComponent,
     RegisterComponent,
 
-    
+
   ],
   imports: [
     BrowserModule,
@@ -27,9 +28,15 @@ import { TeamsModule } from './teams/teams.module';
     FormsModule,
     ReactiveFormsModule,
     TeamsModule
-    
+
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
