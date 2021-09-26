@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TeamDto } from '../DTOs/teamDto';
+import { ConfrimDeleteComponent } from './Components/confrim-delete/confrim-delete.component';
 import { DataService } from './Services/DataService';
 import { TeamService } from './Services/team.service';
 
@@ -16,7 +18,7 @@ export class TeamsComponent implements OnInit {
 
   constructor(private teamService: TeamService,
     private dataService :DataService,
-    private router: Router,) { }
+    private router: Router,private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.dataService.getMessage().subscribe((message) => {
@@ -33,9 +35,15 @@ export class TeamsComponent implements OnInit {
     })
   }
 
-  GoToPlayers(id: number) {
-    debugger;
-    this.dataService.setMessage(id);
-    this.router.navigate(['teams/Players']);
+
+
+  OpenConfirmDialog(id) {
+
+    const dialogRef = this.dialog.open(ConfrimDeleteComponent, {
+      width: "380px",
+      data: {
+        Id: id
+      }
+    });
   }
 }

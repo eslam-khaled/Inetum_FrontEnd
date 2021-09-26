@@ -10,24 +10,32 @@ import { TeamsRoutingModule } from './teams-routing.module';
 import { DataService } from './Services/DataService';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
-
+import { ConfrimDeleteComponent } from './Components/confrim-delete/confrim-delete.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
+    ConfrimDeleteComponent,
     TeamsComponent,
     PlayersListComponent,
     CreateTeamComponent,
     UpdateTeamComponent,
     NavBarComponent
   ],
+  entryComponents:[ConfrimDeleteComponent],
   providers: [DataService],
   imports: [
     CommonModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     TeamsRoutingModule,
     BsDatepickerModule.forRoot(),
-  ]
+
+  ],
+  exports: [ConfrimDeleteComponent]
 })
 export class TeamsModule { }

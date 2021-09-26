@@ -10,15 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TeamsModule } from './teams/teams.module';
 import { Interceptor } from './shared/Gaurd/Interceptor';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
-    RegisterComponent,
-
-
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +27,6 @@ import { Interceptor } from './shared/Gaurd/Interceptor';
     FormsModule,
     ReactiveFormsModule,
     TeamsModule
-
   ],
   providers: [HttpClientModule,
     {

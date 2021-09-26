@@ -13,6 +13,7 @@
         <th scope="col">Coach Name</th>
         <th scope="col">Logo Image</th>
         <th scope="col">Players</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +41,10 @@
 
         <td>
           <a style="color: blue;" [routerLink]="['/teams/Players/',team.id]">Players & Details</a>
+        </td>
+
+        <td>
+          <button class="btn btn-danger" (click)="OpenConfirmDialog(team.id)" >Delete</button>
         </td>
 
       </tr>

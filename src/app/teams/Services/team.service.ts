@@ -19,4 +19,9 @@ export class TeamService {
   CreateNewTeam(body:any):Observable<any> {
     return this.http.post(`${this.url}Team`,body)
   }
+
+  DeleteTeamAndItsPlayersByTeamId(id:number){
+
+    return this.http.delete<boolean>(this.url + "Team?Id="+ id);
+  }
 }
