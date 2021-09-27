@@ -10,11 +10,20 @@ export class NavBarComponent implements OnInit {
 
   constructor(private loginService: LogInService) { }
 
+  Role: any;
+  CurrenUser: any;
   ngOnInit(): void {
+
+
+
+    this.CurrenUser = JSON.parse(localStorage.getItem("currentUser") || '')
+    this.Role = this.CurrenUser.role;
   }
 
   logout() {
     this.loginService.logout();
   }
+
+
 
 }

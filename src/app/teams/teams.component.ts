@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { TeamDto } from '../DTOs/teamDto';
+import { TeamDto } from '../shared/DTOs/teamDto';
 import { ConfrimDeleteComponent } from './Components/confrim-delete/confrim-delete.component';
 import { DataService } from './Services/DataService';
 import { TeamService } from './Services/team.service';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { TeamDto } from 'src/app/DTOs/teamDto';
+import { TeamDto } from 'src/app/shared/DTOs/teamDto';
 import { TeamService } from '../../Services/team.service';
 
 @Component({

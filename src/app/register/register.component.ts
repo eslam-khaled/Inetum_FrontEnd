@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserDto } from '../DTOs/UserDto';
+import { UserDto } from '../shared/DTOs/UserDto';
 import { RegisterService } from '../Services/register.service';
 
 @Component({
@@ -22,19 +22,17 @@ export class RegisterComponent implements OnInit {
     this.NewUserForm = this.formBuilder.group({
       Email: ['', Validators.required],
       Username: ['', Validators.required],
-      Password: ['', Validators.required]
+      Password: ['', Validators.required],
+      Role: [1, Validators.required],
     })
   }
 
   onFormSubmit(NewUserForm) {
     let userDto = new UserDto();
     userDto = NewUserForm;
+    debugger;
     this.registerService.register(userDto).subscribe(result => {
 
     });
-  }
-
-  GoToLogIn(){
-    this.router.navigate(['/login']);
   }
 }

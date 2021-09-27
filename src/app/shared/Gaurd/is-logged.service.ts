@@ -10,7 +10,8 @@ export class IsLoggedService implements CanActivate {
 
   constructor(private route: Router, private loginService: LogInService) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+  canActivate(route: ActivatedRouteSnapshot,
+     state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     return this.CheckLogin();
   }
   CheckLogin(): boolean {

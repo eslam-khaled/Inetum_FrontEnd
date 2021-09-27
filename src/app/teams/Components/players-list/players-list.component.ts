@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { PlayerDto } from 'src/app/DTOs/PlayerDto';
+import { PlayerDto } from 'src/app/shared/DTOs/PlayerDto';
 import { DataService } from '../../Services/DataService';
 import { PlayerService } from '../../Services/player.service';
 

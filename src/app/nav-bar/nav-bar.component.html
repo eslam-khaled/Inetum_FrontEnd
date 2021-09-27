@@ -14,7 +14,7 @@
             Teams List</a>
         </li>
   
-        <li class="nav-item">
+        <li *ngIf="Role == 'Admin'" class="nav-item">
           <a class="nav-link font-weight-bold" [routerLink]="['/teams/CreateTeam']">
             Create New Team
           </a>

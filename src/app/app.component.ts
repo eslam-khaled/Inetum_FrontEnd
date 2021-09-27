@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserDto } from './DTOs/UserDto';
+import { UserDto } from './shared/DTOs/UserDto';
 import { RegisterService } from './Services/register.service';
 
 @Component({
