@@ -1,33 +1,42 @@
 <app-nav-bar></app-nav-bar>
-
+<app-team-details></app-team-details>
 <div class="form-control container divMargin">
 
     <h1 class="center">Players List</h1>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Nationality</th>
-                <th scope="col">Image</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let player of playerList">
+    <form [formGroup]="EditPlayersForm" (ngSubmit)="onFormSubmit(EditPlayersForm.value)">
 
-                <td>
-                    {{player.name}}
-                </td>
+        <div class="btnMargin">
+            <input type="submit" class="btn btn-primary btnPosition" value="Save">
+        </div>
 
-                <td>
-                    {{player.nationality}}
-                </td>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Nationality</th>
+                    <th scope="col">Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of playerList">
+    
+                    <td class="col-3">
+                        <input class="form-control" formControlName="name" value="{{player.name}}">
+                    </td>
+    
+                    <td class="col-3">
+                        <input class="form-control" formControlName="nationality" value="{{player.nationality}}">
+                    </td>
+    
+                    <td class="col-3">
+                        <img alt="."> {{player.Image}}
+                    </td>
+    
+                </tr>
+            </tbody>
+        </table>
 
-                <td>
-                    <img alt="."> {{player.Image}}
-                </td>
+    </form>
 
-            </tr>
-        </tbody>
-    </table>
 </div>

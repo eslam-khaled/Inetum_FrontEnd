@@ -25,3 +25,8 @@ a{
 .center{
     text-align: center;
 }
+
+.btnPosition{
+    width: 20%;
+    margin-left: 75%;
+}

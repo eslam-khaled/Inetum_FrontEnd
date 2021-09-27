@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerDto } from 'src/app/DTOs/PlayerDto';
 import { DataService } from '../../Services/DataService';
@@ -13,12 +14,14 @@ export class PlayersListComponent implements OnInit {
 
   id: number;
   playerList: PlayerDto[];
+  EditPlayersForm: FormGroup;
 
   constructor(private playerService: PlayerService,
-    private data: DataService, private activatedRoute:ActivatedRoute) { }
+    private data: DataService, private activatedRoute: ActivatedRoute,
+    private formbulider: FormBuilder) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(res=>{
+    this.activatedRoute.paramMap.subscribe(res => {
       console.log(typeof res.get('id'));
       this.id = parseInt(res.get('id') || '0')
       this.GetPlayersByTeamId()
@@ -27,6 +30,10 @@ export class PlayersListComponent implements OnInit {
       this.id = message
     });
 
+    this.EditPlayersForm = this.formbulider.group({
+      name: ['', Validators.required],
+      nationality: ['', Validators.required],
+    })
   }
 
   GetPlayersByTeamId() {
@@ -35,4 +42,9 @@ export class PlayersListComponent implements OnInit {
       console.log(this.playerList)
     })
   }
+
+  onFormSubmit(EditPlayersForm){
+
+  }
+  
 }

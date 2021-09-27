@@ -13,6 +13,7 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { ConfrimDeleteComponent } from './Components/confrim-delete/confrim-delete.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TeamDetailsComponent } from './Components/team-details/team-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PlayersListComponent,
     CreateTeamComponent,
     UpdateTeamComponent,
-    NavBarComponent
+    NavBarComponent,
+    TeamDetailsComponent
   ],
   entryComponents:[ConfrimDeleteComponent],
   providers: [DataService],

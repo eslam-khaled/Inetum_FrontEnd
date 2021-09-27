@@ -16,12 +16,21 @@ export class TeamService {
     return this.http.get<TeamDto[]>(this.url + "Team");
   }
 
-  CreateNewTeam(body:any):Observable<any> {
-    return this.http.post(`${this.url}Team`,body)
+  CreateNewTeam(body: any): Observable<any> {
+    return this.http.post(`${this.url}Team`, body)
   }
 
-  DeleteTeamAndItsPlayersByTeamId(id:number){
+  DeleteTeamAndItsPlayersByTeamId(id: number) {
 
-    return this.http.delete<boolean>(this.url + "Team?Id="+ id);
+    return this.http.delete<boolean>(this.url + "Team?Id=" + id);
+  }
+
+  GetTeamDetailsById(id: number) {
+    return this.http.get<TeamDto>(this.url + "Team/GetTeamById?Id=" + id);
+  }
+
+  EditTeamInfoById(teamObj: TeamDto): Observable<any> {
+    return this.http.put(`${this.url}Team`, teamObj)
+
   }
 }

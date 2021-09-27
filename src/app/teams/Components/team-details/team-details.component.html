@@ -1,0 +1,54 @@
+<div class="form-control container positionDown" dir="ltr">
+    <h1 class="center">Team Details</h1>
+    <form [formGroup]="EditTeamForm" (ngSubmit)="onFormSubmit(EditTeamForm.value)">
+
+        <div class="row positionDown">
+
+            <div class="col-6 row">
+                <div class="col-3">
+                    <label>Team Name</label>
+                </div>
+                <div class="col-6">
+                    <input type="text" placeholder="
+                    team Name" class="form-control" formControlName="Name" value="{{teamDto?.name}}">
+
+                </div>
+
+            </div>
+
+            <div class="col-6 row">
+                <div class="col-3">
+                    <label>Country</label>
+                </div>
+                <div class="col-6">
+                    <input type="text" placeholder="Country" value="{{teamDto?.country}}" class="form-control"
+                        formControlName="Country">
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="row positionDown">
+
+            <div class="col-6 row">
+                <div class="col-3">
+                    <label>Coach Name</label>
+                </div>
+                <div class="col-6">
+                    <input type="text" value="{{teamDto?.coachName}}" placeholder="Coach Name" class="form-control"
+                        formControlName="CoachName">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="btnMargin">
+            <input type="submit" class="btn btn-primary btnPosition" value="Save">
+        </div>
+
+    </form>
+
+
+</div>
