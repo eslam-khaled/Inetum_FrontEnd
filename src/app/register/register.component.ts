@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDto } from '../shared/DTOs/UserDto';
 import { RegisterService } from '../Services/register.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -30,9 +31,26 @@ export class RegisterComponent implements OnInit {
   onFormSubmit(NewUserForm) {
     let userDto = new UserDto();
     userDto = NewUserForm;
-    debugger;
     this.registerService.register(userDto).subscribe(result => {
 
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Registered succesfully',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(res => {
+        this.router.navigate(['/login'])
+      })
+    }, err => {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Error! Make sure password long is more than 6 and has uper-case, lower case, number and special marks and user name does not exist before.',
+        showConfirmButton: true,
+        timer: 8000
+      })
+      
     });
   }
 }

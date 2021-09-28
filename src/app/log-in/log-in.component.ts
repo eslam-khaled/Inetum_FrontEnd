@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDto } from '../shared/DTOs/UserDto';
 import { LogInService } from '../Services/log-in.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-log-in',
@@ -31,8 +32,26 @@ export class LogInComponent implements OnInit {
     userDto = NewUserForm;
 
     this.LoginService.Authenticate(userDto).subscribe(result => {
-      localStorage.setItem('currentUser', JSON.stringify(result));
-      this.router.navigate(['/teams'])
+
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Logged in succesfully',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(res => {
+        localStorage.setItem('currentUser', JSON.stringify(result));
+        this.router.navigate(['/teams'])
+      })
+    }, err => {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Error! Some Thing went Wrong Please try again later.',
+        showConfirmButton: true,
+        timer: 2000
+      })
+
     });
   }
 

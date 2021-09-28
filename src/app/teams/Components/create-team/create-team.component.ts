@@ -32,11 +32,7 @@ export class CreateTeamComponent implements OnInit {
   get teamPlayers_Controls() {
     return (this.NewTeamForm.get('playerListDto') as FormArray).controls
   }
-  // getPlayerControl(index){
-  //   const control = this.teamPlayers_Controls;
-  //   // return this.NewTeamForm.get('TeamPlayer')?.get(index).con
-  //   return this.teamPlayers_Controls[index].con
-  // }
+
   addNewPlayer() {
     const TeamPlayerGroup = this.formbulider.group({
       Name: ['', Validators.required],

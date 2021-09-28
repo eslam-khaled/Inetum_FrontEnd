@@ -40,7 +40,6 @@ export class TeamDetailsComponent implements OnInit {
   }
 
   onFormSubmit(EditTeamForm) {
-    debugger;
     let teamObj: TeamDto;
     teamObj = EditTeamForm;
 
